@@ -1,8 +1,12 @@
 const express = require( 'express' )
 const app = express()
+const Post = require( './database/posts' )
 
 app.get( '/', ( request, response) => {
-  response.send('hello world')
+  Post.getAll().then( result => {
+    console.log('result',result)
+    return response.send('hello world')
+  })
 })
 
 
