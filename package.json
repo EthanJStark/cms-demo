@@ -4,13 +4,13 @@
   "description": "cms demo",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "migrate:latest": "knex --knexfile ./database/knexfile.js migrate:latest",
     "migrate:make": "knex --knexfile ./database/knexfile.js migrate:make",
     "migrate:rollback": "knex --knexfile ./database/knexfile.js migrate:rollback",
-    "start:dev": "webpack-dev-server --hot",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "start:backend": "nodemon backendServer.js",
+    "start:frontend": "webpack-dev-server --hot"
   },
   "repository": {
     "type": "git",
@@ -29,14 +29,16 @@
     "pg-promise": "^5.8.2",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "react-fetch": "0.0.9",
     "webpack": "^2.6.1",
-    "webpack-dev-server": "^2.4.5"
+    "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
     "babel-preset-env": "^1.5.1",
     "babel-preset-react": "^6.24.1",
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.11.0",
+    "webpack-dev-server": "^2.4.5"
   }
 }
