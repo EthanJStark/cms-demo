@@ -1,14 +1,15 @@
 const express = require( 'express' )
+const path = require( 'path' )
 const app = express()
-const Post = require( './database/posts' )
 
-app.get( '/', ( request, response) => {
-  Post.getAll().then( result => {
-    console.log('result',result)
-    return response.send('hello world')
-  })
-})
+const index = require( './routes/index' )
+const posts = require( './routes/posts' )
 
+app.use( express.static( path.join( __dirname, 'public' )))
+app.set( 'view engine', 'pug' )
+
+app.use( '/', index )
+app.use( '/posts', posts )
 
 app.listen( 3000, () => {
   console.log( 'Listening at localhost:3000')
