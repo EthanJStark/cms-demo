@@ -1,7 +1,11 @@
 extends layout
 
 block content
-  h1= title
+  .jumbotron
+    h1 ForkPitch Music
+    p.lead All the music news you need, with none of the pretension
+  .row
   each post in posts
-    h2= post.title
+    .col-lg-4
+      h2= post.title
   
