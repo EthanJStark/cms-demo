@@ -11,11 +11,10 @@ router.get( '/', ( request, response) => {
 
 router.post( '/edit/title/:id', ( request, response ) => {
   const postId = request.params.id
-  console.log('postId',postId)
-  Posts.editTitle( 'blah2', postId ).then( _ => {
-    console.log( 'maybe edited' )
-    return "success"
-  })
+  const { updatedTitle } = request.body
+  Posts.editTitle( updatedTitle, postId )
+    .then( () => response.redirect('/'))
+    .catch( error => response.status(500).json({error}) )
 })
 
 module.exports = router

@@ -6,7 +6,7 @@ block content
     p.lead All the music news you need, with none of the pretension
   .row
   each post in posts
-    .col-lg-4
+    .col-lg-4(data-id=post.id)
       h2(data-id=post.id)= post.title
-      input.post__edit-title(data-id=post.id, type='text', name='edit-title', value=post.title).h2
+      input.post__edit-title(data-id=post.id, type='text', name='updatedTitle', value=post.title).h2
   
