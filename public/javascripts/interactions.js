@@ -12,7 +12,6 @@ const titleEdited = event => {
   const elementToHide = $( event.target )
   const id = elementToHide.data( 'id' )
   const elementToShow = $( selector( 'post__title', id, 'h2' ) )
-  console.log('elementToShow',elementToShow)
   if( event.keyCode === RETURN_KEY ) {
     let updatedTitle = elementToHide[0].value
     fetch( `/posts/edit/title/${id}`, params( { updatedTitle } ) )

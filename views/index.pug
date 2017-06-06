@@ -5,7 +5,7 @@ block content
     h1 ForkPitch Music
     p.lead All the music news you need, with none of the pretension
   .row
-  each post in posts
+  each post in results
     .col-lg-4(data-id=post.id)
       h2(data-id=post.id)= post.title
       input.post__edit-title(data-id=post.id, type='text', name='updatedTitle', value=post.title).h2
